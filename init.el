@@ -37,6 +37,14 @@ There are two things you can do about this warning:
 (add-hook 'TeX-after-compilation-finished-functions
         #'TeX-revert-document-buffer)
 
+(require 'org)
+(setq org-log-done 'time)
+;;
+;; Standard key bindings
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -52,14 +60,9 @@ There are two things you can do about this warning:
      (output-dvi "xdvi")
      (output-pdf "PDF Tools")
      (output-html "xdg-open"))))
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (light-blue)))
- '(custom-safe-themes
-   (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(doc-view-continuous t)
  '(inhibit-startup-screen t)
+ '(org-agenda-files (quote ("~/Documents/todo.org")))
  '(package-selected-packages
    (quote
     (markdown-mode ein elpy pdf-tools yasnippet-snippets yasnippet org better-defaults auctex)))
