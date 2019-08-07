@@ -1,0 +1,55 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/dhsong/" . "Documents/")
+ ("/home/dhsong/Documents/slides/" . "DPF2019/")
+ ("/home/dhsong/Documents/notes/" . "DA12402/")
+ ("/home/dhsong/Documents/" . "slides/")
+ ("/home/" . "dhsong/")
+ ("/" . "home/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/dhsong/Documents/slides/DPF2019/"
+ "/home/dhsong/Downloads/Porter_etal_ApJ_846_67_2017_SEDonly/"
+ "/home/dhsong/Documents/notes/DA12402/"
+ "/home/dhsong/Documents/org/"
+ "/home/dhsong/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "dpf2019boston.tex"
+ "F98.log"
+ "main.tex"
+ "todo.org"
+ "init.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/dhsong/Documents/slides/DPF2019/" (23860 61075 123686 106000) "dpf2019boston.nav" "figures/" "./" "dpf2019boston.out" "Electron_spectra.ipynb" "dpf2019boston.tex" "dpf2019boston.aux" "dpf2019boston.pdf" "dpf2019boston.toc" "dpf2019boston.snm" "dpf2019boston.log" ".ipynb_checkpoints/" "../")
+
+ ("/home/" (23836 41394 11999 74000) "jadmin/" "./" "dhsong/" "../")
+
+ ("/home/dhsong/" (23859 27245 577316 997000) ".bashrc" ".macromedia/" ".adobe/" "Documents/" ".fontconfig/" ".jupyter/" "Public/" ".steampid" ".ssh/" ".profile" "snap/" "Videos/" "anaconda3/" ".bash_logout" ".steam/" ".bash-git-prompt/" ".gnupg/" ".wget-hsts" "Music/" ".cache/" "./" ".astropy/" ".sudo_as_admin_successful" ".steampath" ".bash_it/" ".mozilla/" ".zoom/" ".config/" ".conda/" "Templates/" ".rootrc" ".root_hist" ".gimp-2.8/" "Downloads/" ".thumbnails/" ".emacs.d/" ".local/" ".inputrc" ".bashrc_bak" ".Mathematica/" ".ipython/" ".rootrc.bak" ".pulse-cookie" "pfiles/" ".bin/" ".ICEauthority" "Desktop/" ".gitconfig" ".pki/" ".gconf/" "Pictures/" "../" ".viminfo" ".bash_history" ".Wolfram/")
+
+ ("/home/dhsong/Documents/" (23860 59147 782460 300000) "diffuse_center_arrow.xcf" "slides/" "galbulge/" "org/" "notes/" "./" "Calibre Library/" "Wolfram Mathematica/" "prelim/" "gamma_ray_GbCs/" "fermipy/" "../")
+
+ ("/home/dhsong/Documents/org/" (23860 61062 151697 49000) "todo.org" "./" "../")
+
+ ("/home/dhsong/Documents/slides/" (23835 46679 419472 493000) "./" "DPF2019/" "../")
+
+ ("/home/dhsong/Downloads/Porter_etal_ApJ_846_67_2017_SEDonly/" (23851 38819 289290 126000) "F98.log" "./" "F98/" "extract_number_density.cc" "README" ".#extract_number_density.cc" "README~" "R12/" "../" "extract_number_density")
+
+ ("/home/dhsong/Documents/notes/DA12402/" (23850 13997 132221 880000) "skymap_bulge_500gev.pdf" "lat_500gev.pdf" "main.tex" "injection_lon.pdf" "ics_spectrum_hess_spectral.pdf" "main.bib" "lon_30tev.pdf" "lon_3gev.pdf" "main.log" "main.pdf" "skymap_nfw_500gev.pdf" "./" "ics_spectrum_hess_diffuse.pdf" "skymap_bulge_30tev.pdf" "skymap_nfw_3gev.pdf" "mainNotes.bib" "injection_skymap_bulge.pdf" "lon_500gev.pdf" "ics_spectrum_components.pdf" "main.out" "main.aux" "lat_30tev.pdf" "skymap_nfw_30tev.pdf" "ics_spectrum_bfields.pdf" "main.blg" "lat_3gev.pdf" "main.bbl" "injection_lat.pdf" "../" "injection_skymap_nfw.pdf" "skymap_bulge_3gev.pdf")
+
+ ("/home/dhsong/Documents/notes/" (23839 37935 29061 139000) "electrons-in-globular-clusters.pdf" "electrons-in-globular-clusters.tex" "Schutz-General-Relativity.log" "GALPROP56.tex~" "GALPROP56.log" "GALPROP56.pdf" "./" "GALPROP56.aux" "selecting indices in a geometric shape.ipynb" "_region_.tex" "Schutz-General-Relativity.pdf" "#Schutz-General-Relativity.tex#" "Schutz-General-Relativity.tex" "prv_Schutz-General-Relativity.log" "electrons-in-globular-clusters.tex~" "electrons-in-globular-clusters.log" "GALPROP56.tex" "electrons-in-globular-clusters.aux" "_region_.log" "Schutz-General-Relativity.tex~" "DA12402/" "Schutz-General-Relativity.aux" "../")
+
+ ("/home/dhsong/.emacs.d/" (23806 37337 895602 914000) "auto-save-list/" "./" "elpa/" "../" "init.el")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
