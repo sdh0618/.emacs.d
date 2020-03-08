@@ -6,6 +6,7 @@
 (load "package")
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (package-initialize)
 ;; (package-refresh-contents)
 
@@ -140,14 +141,38 @@
 (setq-default show-trailing-whitespace t)
 ;;;;;
 
+;;;;; Set PATH Variable
+(setenv "PATH" (concat (getenv "PATH") ":/home/dhsong/.bin/:/home/dhsong/.texlive/2019/bin/x86_64-linux:/home/dhsong/anaconda3/bin:/home/dhsong/anaconda3/condabin"))
+(setq exec-path (append exec-path '("/home/dhsong/.bin/:/home/dhsong/.texlive/2019/bin/x86_64-linux:/home/dhsong/anaconda3/bin:/home/dhsong/anaconda3/condabin")))
+
+;; Update PDF buffers after successful LaTeX runs
+(add-hook 'TeX-after-compilation-finished-functions
+          #'TeX-revert-document-buffer)
+
+;; Enable recent file
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(setq recentf-max-saved-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-view-program-selection
+   (quote
+    (((output-dvi has-no-display-manager)
+      "dvi2tty")
+     ((output-dvi style-pstricks)
+      "dvips and gv")
+     (output-dvi "xdvi")
+     (output-pdf "PDF Tools")
+     (output-html "xdg-open"))))
  '(package-selected-packages
    (quote
-    (solarized-theme smex powerline pdf-tools markdown-mode magit flycheck elpy autopair auto-complete auctex))))
+    (solarized-theme smex powerline pdf-tools markdown-mode magit flycheck elpy autopair auto-complete auctex)))
+ '(preview-TeX-style-dir "/home/dhsong/.emacs.d/elpa/auctex-12.2.0/latex"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
