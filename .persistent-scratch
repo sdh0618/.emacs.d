@@ -1,0 +1,66 @@
+(["*scratch*" "Research project:
+1. gamma-ray globular cluster
+2. PTA and subhalo
+3. dark matter cosmic ray
+
+Development:
+Learn QFT
+Coursera classes
+
+Development:
+Ring fit
+Japanese
+English
+
+Match with 4FGL:
+
+P8R3_SOURCE_V2
+gll_iem_v07
+2008 August 4 (15:43 UTC) to 2016 August 2 (05:44 UTC)
+0.05 GeV–1 TeV
+the source photon fluxes in
+4FGL are reported in seven energy bands (1: 50–100 MeV; 2:
+100–300 MeV; 3: 300 MeV–1 GeV; 4: 1–3 GeV; 5: 3–10 GeV;
+6: 10–30 GeV; 7: 30–300 GeV)
+
+Report spectral fit to both models, without claim curvedness.
+Compare with MSP the log-parabola parameters.
+Check E_peak for log-parabola spectrum
+
+(0.5/1) Introduction
+(0.5/1) Globular cluster sample
+(0.5/1) Gamma-ray analyses
+(0.5/1) Correlation study
+(0.5/1) Correlation results
+
+(0/1) IC physics
+(0/1) Spectral analyses
+(0/1) Hidden correlation
+(0/1) Special globular cluster
+(0/1) Discussion
+
+We've find the high of GC spectra in PL and another half curved.
+
+1). For curved ones, is there a detection for second POWER-LAW
+
+2). compare with MSP in logparabola spectrum: use E0 vs alpha.
+
+Distinguish curved and powerlaw ones or hardness ratio
+
+f_e+/-: extrapolate e+/- spectra to high energy: near KN limit
+
+check CR e+/- spectrum for low energy limit
+
+try to find the best fit f_e+/- that explain the entire population
+
+detected bins above 10 GeV
+
+Positron paper:
+
+1). Baseline with DM
+2). Convolute (BB+NB)x(HI+CO)
+
+
+
+
+" (1387 . 801) org-mode nil nil])

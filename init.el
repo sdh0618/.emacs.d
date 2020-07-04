@@ -15,14 +15,15 @@
 			  auctex
                           auto-complete
                           autopair
-;;                          elpy
-;;                          flycheck
-;;                          magit
+			  persistent-scratch
+			  ;;elpy
+			  ;;flycheck
+			  ;;magit
                           markdown-mode
                           org
                           pdf-tools
-;;                          powerline
-;;                          smex
+			  ;;powerline
+			  ;;smex
                           solarized-theme
 			  writegood-mode
 			  yasnippet
@@ -30,17 +31,6 @@
   "Default packages")
 
 ;; Install default packages
-;;(defun dhsong/packages-installed-p ()
-;;  (loop for pkg in dhsong/packages
-;;        when (not (package-installed-p pkg)) do (return nil)
-;;        finally (return t)))
-;;
-;;(unless (dhsong/packages-installed-p)
-;;  (message "%s" "Refreshing package database...")
-;;  (package-refresh-contents)
-;;  (dolist (pkg dhsong/packages)
-;;    (when (not (package-installed-p pkg))
-;;      (package-install pkg))))
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
 	    (package-refresh-contents)
@@ -141,7 +131,7 @@
 (setq-default show-trailing-whitespace t)
 ;;;;;
 
-;;;;; Set PATH Variable
+;; Set PATH Variable
 (setenv "PATH" (concat (getenv "PATH") ":/home/dhsong/.bin/:/home/dhsong/.texlive/2019/bin/x86_64-linux:/home/dhsong/anaconda3/bin:/home/dhsong/anaconda3/condabin"))
 (setq exec-path (append exec-path '("/home/dhsong/.bin/:/home/dhsong/.texlive/2019/bin/x86_64-linux:/home/dhsong/anaconda3/bin:/home/dhsong/anaconda3/condabin")))
 
@@ -154,6 +144,9 @@
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+;; Enable autosave and restore scratch
+(persistent-scratch-setup-default)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -172,7 +165,7 @@
  '(package-selected-packages
    (quote
     (solarized-theme smex powerline pdf-tools markdown-mode magit flycheck elpy autopair auto-complete auctex)))
- '(preview-TeX-style-dir "/home/dhsong/.emacs.d/elpa/auctex-12.2.0/latex"))
+ '(preview-TeX-style-dir "/home/dhsong/.emacs.d/elpa/auctex-12.2.0/latex" t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

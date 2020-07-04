@@ -1,0 +1,49 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/dhsong/" . ".emacs.d/")
+ ("/home/dhsong/Documents/gamma_ray_GbCs/" . "AllSkymap/")
+ ("/home/dhsong/Documents/" . "notes/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/dhsong/Documents/gamma_ray_GbCs/AllSkymap/"
+ "/home/dhsong/Documents/"
+ "/home/dhsong/.emacs.d/"
+ "/home/dhsong/Documents/gamma_ray_GbCs/draft/"
+ "/home/dhsong/Documents/5dd4b6f52d9b68000125319a/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "iMap_positions.py"
+ "iMap_AllSky2.py"
+ "todo.org"
+ "init.el"
+ "notes.org"
+ "sample63.tex"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/dhsong/Documents/gamma_ray_GbCs/AllSkymap/" (24234 28219 766601 370000) ".#iMap_positions.py" "iMap_AllSky2.py~" "AllSky_map.pdf" "GbC_data_NoFermi.dat~" "4FGL_NonDetected.dat" "4FGL_Detected.dat" "iMap_AllSky.py~" "backup/" "iMap_positions.py~" "iMap_positions.py" "iMap_AllSky2.py" "GbC_data_New.dat" "GbC_data.dat~" "NonDetectedGbCs.dat" "GbC_data_Fermi.dat" "./" "NonDetectedGbCs.dat~" "../" "iMap_AllSky.py" ".ipynb_checkpoints/")
+
+ ("/home/dhsong/Documents/gamma_ray_GbCs/" (24234 27789 766464 463000) "association/" "draft/" ".git/" "reproduce_fermi/" "2-KentallTau.ipynb" "5-SpatialMaps.ipynb" "data/" "1-SpectraFit.ipynb" "AllSkymap/" "0-ReadSED.ipynb" "ImportPackages.py" "LICENSE" "correlation_analysis.py" "GlobularClusters300MeV/" "backup/" "EM.py" "AllSkymap.tar.gz" "4-ICModels.ipynb" ".gitignore" "lmfit_luminosity/" "./" "gamma_range.npy" "asurv/" "../" ".ipynb_checkpoints/" "__pycache__/" "README.md" "globular_clusters.py" "figure/" "3-Correlations.ipynb" "energy_loss.npy" "ImportData.py" "catalogs/")
+
+ ("/home/dhsong/Documents/" (24234 4120 479641 687000) "rpp2018-rev-astrophysical-constants.pdf" "gamma_ray_GbCs/" "CTA_Sensitivity_MSP/" "books/" "Wolfram Mathematica/" "slides/" "DMCR/" "PTA/" "darkphoton_IGRB/" "bibtex/" "galbulge/" "./" "notes/" "todo.org" "../")
+
+ ("/home/dhsong/Documents/notes/" (24135 21902 393618 104000) "GALPROP56.tex" "_region_.log" "GALPROP56.log" "dpf2019.txt" "electrons-in-globular-clusters.log" "GALPROP56.odg" "#Schutz-General-Relativity.tex#" "electrons-in-globular-clusters.aux" "GALPROP56.aux" "prv_Schutz-General-Relativity.log" "_region_.tex" "Schutz-General-Relativity.tex~" "electrons-in-globular-clusters.tex" "electrons-in-globular-clusters.tex~" "Schutz-General-Relativity.tex" "./" "Schutz-General-Relativity.pdf" "../" "Schutz-General-Relativity.log" "electrons-in-globular-clusters.pdf" "Schutz-General-Relativity.aux" "GALPROP56.tex~" "GALPROP56.pdf" "cosmology/" "selecting indices in a geometric shape.ipynb")
+
+ ("/home/dhsong/" (24229 55762 906513 308000) ".config/" ".java/" ".jupyter/" ".macromedia/" "Templates/" "Music/" ".zoom/" "Videos/" ".thunderbird/" ".root_hist" ".Mathematica/" ".gconf/" ".atom/" ".Wolfram/" ".zotero/" ".wine/" ".openjfx/" ".android/" ".mozilla/" ".Xauthority" ".accelerate/" "anaconda3/" "Downloads/" ".conky/" ".wget-hsts" ".dbus/" "Desktop/" "fvtmp/" ".bashrc" ".emacs.d/" ".texlive/" ".bin/" ".bash_history" ".ssh/" ".python_history" ".bash_logout" ".hardinfo/" "Games/" ".gnupg/" "baidunetdisk/" ".ipython/" ".ICEauthority" "./" ".gitconfig" ".org.jabref.JabRefMain/" "Pictures/" ".dmrc" "Documents/" ".cache/" ".pki/" ".fontconfig/" "../" ".rootnb/" ".xsession-errors.old" ".xsession-errors" ".conda/" ".adobe/" "Public/" ".local/" ".astropy/" ".profile" ".gtk-2.0/")
+
+ ("/home/dhsong/.emacs.d/" (24221 61680 619779 962000) ".git/" "ac-comphist.dat" "auto-save-list/" "LICENSE" "elpa/" ".gitignore" ".persistent-scratch" "./" "ido.last" "../" "init.el" "README.md" "recentf")
+
+ ("/home/dhsong/Documents/gamma_ray_GbCs/draft/" (24221 61710 743770 657000) "notes.org" ".#notes.org" "./" "../")
+
+ ("/home/dhsong/Documents/5dd4b6f52d9b68000125319a/" (24184 65471 469590 591000) ".git/" "main.pdf" "main.log" "aasjournal.bst" "sample63.aux" "sample63.pdf" "main.aux" "main.tex" "aastex63.cls" ".gitignore" "./" "../" "sample63.out" "sample63.log" "rnaas.tex" "main.bib" "Orcid-ID.png" "main.out" "figures/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
