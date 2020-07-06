@@ -55,12 +55,37 @@ try to find the best fit f_e+/- that explain the entire population
 
 detected bins above 10 GeV
 
-Positron paper:
+* Positron paper:
 
 1). Baseline with DM
 2). Convolute (BB+NB)x(HI+CO)
 
+* Globular cluster paper outline
 
+** Introduction
 
+1. review gamma-ray detections of GCs by Fermi LAT
+2. discuss possible origins/models
+3. summarize privious results
+4. discuss what we did: 4FGL, 30 GCs, spectral analysis, include 127 upper limits, correlation study.
 
-" (1387 . 801) org-mode nil nil])
+** Review of gamma-ray emissions from MSPs
+
+1. prompt
+2. IC
+3. what to expect from globular clusters
+
+** Globular cluster samples
+
+1. Harris catalog
+2. Astrophysical properties
+
+** Fermi data analysis
+
+** Spectral analysis
+
+** Correlation analysis
+
+** Conclusions
+
+" (1923 . 801) org-mode nil nil])
