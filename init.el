@@ -132,8 +132,12 @@
 ;;;;;
 
 ;; Set PATH Variable
-(setenv "PATH" (concat (getenv "PATH") ":/home/dhsong/.bin/:/home/dhsong/.texlive/2019/bin/x86_64-linux:/home/dhsong/anaconda3/bin:/home/dhsong/anaconda3/condabin"))
-(setq exec-path (append exec-path '("/home/dhsong/.bin/:/home/dhsong/.texlive/2019/bin/x86_64-linux:/home/dhsong/anaconda3/bin:/home/dhsong/anaconda3/condabin")))
+;; (setenv "PATH" (concat (getenv "PATH") ":/home/dhsong/.bin:/home/dhsong/.local/bin:/home/dhsong/anaconda3/bin:/home/dhsong/anaconda3/condabin"))
+;; (setq exec-path (append exec-path '("/home/dhsong/.bin:/home/dhsong/.local/bin:/home/dhsong/anaconda3/bin:/home/dhsong/anaconda3/condabin")))
+
+;; Config shell command
+(setq shell-file-name "zsh")
+(setq shell-command-switch "-ic")
 
 ;; Update PDF buffers after successful LaTeX runs
 (add-hook 'TeX-after-compilation-finished-functions
