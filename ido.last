@@ -2,45 +2,64 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/home/dhsong/Documents/4FGLDR2GLC/Data/" . "Terzan5/")
+ ("/home/dhsong/Documents/4FGLDR2GLC/" . "Data/")
  ("/home/dhsong/" . ".emacs.d/")
  ("/home/dhsong/Documents/gamma_ray_GbCs/" . "AllSkymap/")
- ("/home/dhsong/Documents/" . "notes/")
+ ("/home/dhsong/Documents/" . "4FGLDR2GLC/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/home/dhsong/.emacs.d/"
+ "/home/dhsong/Documents/4FGLDR2GLC/Data/Terzan5/"
+ "/home/dhsong/Documents/5f037be147bd100001daf2fd/"
+ "/home/dhsong/Documents/URA-VSP/"
  "/home/dhsong/Documents/gamma_ray_GbCs/AllSkymap/"
  "/home/dhsong/Documents/"
- "/home/dhsong/.emacs.d/"
  "/home/dhsong/Documents/gamma_ray_GbCs/draft/"
  "/home/dhsong/Documents/5dd4b6f52d9b68000125319a/"
 )
 
 ;; ----- ido-work-file-list -----
 (
+ "init.el"
+ "config.yaml"
+ "main.tex"
+ "mnras_template.tex"
+ "ApplicationProcess.org"
  "iMap_positions.py"
  "iMap_AllSky2.py"
  "todo.org"
- "init.el"
  "notes.org"
  "sample63.tex"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/dhsong/Documents/gamma_ray_GbCs/AllSkymap/" (24234 28219 766601 370000) ".#iMap_positions.py" "iMap_AllSky2.py~" "AllSky_map.pdf" "GbC_data_NoFermi.dat~" "4FGL_NonDetected.dat" "4FGL_Detected.dat" "iMap_AllSky.py~" "backup/" "iMap_positions.py~" "iMap_positions.py" "iMap_AllSky2.py" "GbC_data_New.dat" "GbC_data.dat~" "NonDetectedGbCs.dat" "GbC_data_Fermi.dat" "./" "NonDetectedGbCs.dat~" "../" "iMap_AllSky.py" ".ipynb_checkpoints/")
+ ("/home/dhsong/.emacs.d/" (24371 40948 403488 728000) "init.el" "session.2ea36cc9f-22e4-460e-afce-ee12bc6126a2" "recentf" "LICENSE" "session.202414142-7f00-4a0e-b89c-2c46806c7be1" ".git/" ".persistent-scratch" "auto-save-list/" ".gitignore" "README.md" "ido.last" "ac-comphist.dat" "../" "session.227f6310d-fb2f-4d8a-b243-f1505ed6eadc" "elpa/" "./")
+
+ ("/home/dhsong/" (24368 39346 149563 139000) ".org.jabref.JabRefMain/" ".xsession-errors.old" ".ICEauthority" ".ssh/" "Music/" ".bash_profile" ".profile" ".bin/" ".bash_logout" ".zshrc" ".emacs.d/" ".pki/" ".thunderbird/" "Documents/" "Desktop/" ".dir_colors" "anaconda3/" ".jupyter/" "Downloads/" ".shell.pre-oh-my-zsh" ".java/" ".astropy/" ".ipython/" ".bashrc" ".config/" ".wget-hsts" ".zsh_history" ".openjfx/" ".zoom/" "Pictures/" ".Wolfram/" "Public/" ".zcompdump-madame-5.8" ".cache/" ".Mathematica/" ".Xauthority" ".conda/" ".oh-my-zsh/" ".rootrc.bak" ".Xclients" ".texlive2020/" ".bash_history" ".gnupg/" ".python_history" "Videos/" ".local/" ".mozilla/" ".pdfbox.cache" ".nv/" ".root_hist" "../" ".gitconfig" ".dmrc" ".xsession-errors" "fvtmp/" ".rootrc" ".gnome/" ".xinitrc" "./" "Templates/")
+
+ ("/home/dhsong/Documents/4FGLDR2GLC/Data/Terzan5/" (24348 57471 605837 924000) "L200725213909F357373F89_PH00.fits.part" "L200725213909F357373F89_PH00.fits" "L200725213909F357373F89_SC00.fits" "L200725213909F357373F89_SC00.fits.part" "../" "./")
+
+ ("/home/dhsong/Documents/4FGLDR2GLC/Data/" (24348 57392 237427 101000) "glc_data.csv" ".~lock.glc_data.csv#" "Terzan5/" "../" "detthresh_P8R3_source_10years_PL22.fits" "orbits_table.csv" "gll_psc_v23.fit" "orbits_table.txt" "./")
+
+ ("/home/dhsong/Documents/4FGLDR2GLC/" (24348 57844 627357 693000) "4FGL_J1748d0m2446_spec.png" ".git/" "1-DataAnalysis.ipynb" "Data/" "0-4FGLDR2.ipynb" "../" ".ipynb_checkpoints/" "./")
+
+ ("/home/dhsong/Documents/" (24348 50519 551445 471000) "4FGLDR2GLC/" "Wolfram Mathematica/" "2020-URA-VSP/" "gamma_ray_GbCs/" "Books/" "PTA/" "bibtex/" "../" "GeV_bulge_morphology/" "DMCR/" "RandomZap/" "./")
+
+ ("/home/dhsong/Documents/5f037be147bd100001daf2fd/" (24326 32761 483655 483000) "mnras.cls" "LEGACY/" "readme.txt" "mnras.bst" "example.bib" ".git/" "example.png" "example.ps" "example.eps" "mnras_guide.tex" "main.tex" "../" "./")
+
+ ("/home/dhsong/Documents/gamma_ray_GbCs/draft/" (24323 20371 212302 168000) "notes.org" "../" "./")
+
+ ("/home/dhsong/Documents/gamma_ray_GbCs/AllSkymap/" (24323 20366 575945 294000) "AllSky_map.pdf" "iMap_positions.py" "4FGL_Detected.dat" "backup/" "GbC_data_New.dat" "iMap_AllSky2.py" "distance_map.pdf" "iMap_AllSky.py" "../" "NonDetectedGbCs.dat" "4FGL_NonDetected.dat" "GbC_data_Fermi.dat" "./")
+
+ ("/home/dhsong/Documents/URA-VSP/" (24325 49687 580629 298000) "../" "./")
 
  ("/home/dhsong/Documents/gamma_ray_GbCs/" (24234 27789 766464 463000) "association/" "draft/" ".git/" "reproduce_fermi/" "2-KentallTau.ipynb" "5-SpatialMaps.ipynb" "data/" "1-SpectraFit.ipynb" "AllSkymap/" "0-ReadSED.ipynb" "ImportPackages.py" "LICENSE" "correlation_analysis.py" "GlobularClusters300MeV/" "backup/" "EM.py" "AllSkymap.tar.gz" "4-ICModels.ipynb" ".gitignore" "lmfit_luminosity/" "./" "gamma_range.npy" "asurv/" "../" ".ipynb_checkpoints/" "__pycache__/" "README.md" "globular_clusters.py" "figure/" "3-Correlations.ipynb" "energy_loss.npy" "ImportData.py" "catalogs/")
 
- ("/home/dhsong/Documents/" (24234 4120 479641 687000) "rpp2018-rev-astrophysical-constants.pdf" "gamma_ray_GbCs/" "CTA_Sensitivity_MSP/" "books/" "Wolfram Mathematica/" "slides/" "DMCR/" "PTA/" "darkphoton_IGRB/" "bibtex/" "galbulge/" "./" "notes/" "todo.org" "../")
-
  ("/home/dhsong/Documents/notes/" (24135 21902 393618 104000) "GALPROP56.tex" "_region_.log" "GALPROP56.log" "dpf2019.txt" "electrons-in-globular-clusters.log" "GALPROP56.odg" "#Schutz-General-Relativity.tex#" "electrons-in-globular-clusters.aux" "GALPROP56.aux" "prv_Schutz-General-Relativity.log" "_region_.tex" "Schutz-General-Relativity.tex~" "electrons-in-globular-clusters.tex" "electrons-in-globular-clusters.tex~" "Schutz-General-Relativity.tex" "./" "Schutz-General-Relativity.pdf" "../" "Schutz-General-Relativity.log" "electrons-in-globular-clusters.pdf" "Schutz-General-Relativity.aux" "GALPROP56.tex~" "GALPROP56.pdf" "cosmology/" "selecting indices in a geometric shape.ipynb")
-
- ("/home/dhsong/" (24229 55762 906513 308000) ".config/" ".java/" ".jupyter/" ".macromedia/" "Templates/" "Music/" ".zoom/" "Videos/" ".thunderbird/" ".root_hist" ".Mathematica/" ".gconf/" ".atom/" ".Wolfram/" ".zotero/" ".wine/" ".openjfx/" ".android/" ".mozilla/" ".Xauthority" ".accelerate/" "anaconda3/" "Downloads/" ".conky/" ".wget-hsts" ".dbus/" "Desktop/" "fvtmp/" ".bashrc" ".emacs.d/" ".texlive/" ".bin/" ".bash_history" ".ssh/" ".python_history" ".bash_logout" ".hardinfo/" "Games/" ".gnupg/" "baidunetdisk/" ".ipython/" ".ICEauthority" "./" ".gitconfig" ".org.jabref.JabRefMain/" "Pictures/" ".dmrc" "Documents/" ".cache/" ".pki/" ".fontconfig/" "../" ".rootnb/" ".xsession-errors.old" ".xsession-errors" ".conda/" ".adobe/" "Public/" ".local/" ".astropy/" ".profile" ".gtk-2.0/")
-
- ("/home/dhsong/.emacs.d/" (24221 61680 619779 962000) ".git/" "ac-comphist.dat" "auto-save-list/" "LICENSE" "elpa/" ".gitignore" ".persistent-scratch" "./" "ido.last" "../" "init.el" "README.md" "recentf")
-
- ("/home/dhsong/Documents/gamma_ray_GbCs/draft/" (24221 61710 743770 657000) "notes.org" ".#notes.org" "./" "../")
 
  ("/home/dhsong/Documents/5dd4b6f52d9b68000125319a/" (24184 65471 469590 591000) ".git/" "main.pdf" "main.log" "aasjournal.bst" "sample63.aux" "sample63.pdf" "main.aux" "main.tex" "aastex63.cls" ".gitignore" "./" "../" "sample63.out" "sample63.log" "rnaas.tex" "main.bib" "Orcid-ID.png" "main.out" "figures/")
 )

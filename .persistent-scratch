@@ -10,6 +10,7 @@ all ams2 excesses with galprop?
 galactic magnetic field multiwavelenth diffusion emission
 
 
+
 Development:
 Learn QFT
 Coursera classes
@@ -62,6 +63,19 @@ try to find the best fit f_e+/- that explain the entire population
 
 detected bins above 10 GeV
 
+Dear Prof,
+
+I am a graduate student at Virginia Tech studying astroparticle
+physics. I am currently looking for an oppotunite to visit the Fermi
+Lab through the URV program. And I am writing to ask if you are willing
+to host me.
+
+My research focus on gamma rays and millisecond pulsars. I am also
+interested in cosmic ray physics and dark matter indirect search.
+
+I hope to be able to visit next spring or summer and I wonder if you 
+will be available during those time
+
 * Positron paper:
 
 1). Baseline with DM
@@ -89,11 +103,41 @@ detected bins above 10 GeV
 2. Astrophysical properties
 
 ** Fermi data analysis
-
+   period
+   data section
+   pass 8, zenith angle, IRF...
+   software version
+   energy bin, spatial resoltuion
+   ROI, background models
 ** Spectral analysis
 
 ** Correlation analysis
 
 ** Conclusions
 
-" (2048 . 243) org-mode nil nil])
+** References
+
+Baumgardt et al 19
+Removed Glimpse-01, BH 176
+Could not reliably identify any cluster members in Gaia DR2 for Glimpse-02
+and 2MASS-GC01
+
+citations
+
+fermi detection of globular clusters:
+abdo 2009,abdo 2010, kong 2010, tam 2011, zhou 2015, zhang 2016
+
+msp origin:
+radio pulsars in globular clusters: camilo 2005
+msp in gamma-ray: Verbunt 1996, Abdo 2009apj, Espinoza 2013, Abdo 2013apjs
+msp in globular clusters: Freire 2011, Johnson 2013
+
+MSP gamma-ray models:
+Harding 05, Bednarek 2007, Venter 2009, Chen 2010, Kopp 2013,
+Ndiyavala 2019,
+
+previous study:
+abdo 2010, hui 2010, hooper 2016, Lloyd 2018, Menezes 2019
+
+
+" (3288 . 3276) org-mode nil nil])
