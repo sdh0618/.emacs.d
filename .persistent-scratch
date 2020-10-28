@@ -234,8 +234,9 @@ The correct order of brackets is {[( . . . )]}.
 
 Computer software should be in small capitals e.g. IRAF, CLOUDY.
 
-* TODO grading
+* DONE grading
+  CLOSED: [2020-10-28 Wed 11:33]
 
 * TODO 
 
-" (8527 . 8438) org-mode nil nil])
+" (3883 . 8438) org-mode nil nil])
