@@ -158,17 +158,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(TeX-view-program-selection
-   (quote
-    (((output-dvi has-no-display-manager)
+   '(((output-dvi has-no-display-manager)
       "dvi2tty")
      ((output-dvi style-pstricks)
       "dvips and gv")
      (output-dvi "xdvi")
-     (output-pdf "PDF Tools")
-     (output-html "xdg-open"))))
+     (output-pdf "Skim")
+     (output-html "xdg-open")))
  '(package-selected-packages
-   (quote
-    (solarized-theme smex powerline pdf-tools markdown-mode magit flycheck elpy autopair auto-complete auctex)))
+   '(solarized-theme smex powerline pdf-tools markdown-mode magit flycheck elpy autopair auto-complete auctex))
  '(preview-TeX-style-dir "/home/dhsong/.emacs.d/elpa/auctex-12.2.0/latex" t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
