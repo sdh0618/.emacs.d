@@ -237,6 +237,10 @@ Computer software should be in small capitals e.g. IRAF, CLOUDY.
 * DONE grading
   CLOSED: [2020-10-28 Wed 11:33]
 
-* TODO 
+* TODO
 
+<<<<<<< HEAD
 " (1 . 8438) org-mode nil nil])
+=======
+" (241 . 219) org-mode nil nil])
+>>>>>>> 40dc84cf3f5af99627f6917c0d538f660446aa0c
