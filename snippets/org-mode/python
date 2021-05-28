@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: python
+# key: py_
+# --
+#+begin_src python :results ${1:output} :exports ${2:both} :noweb ${3:strip-export}
+$0
+#+end_src

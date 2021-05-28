@@ -1,0 +1,32 @@
+
+;; ----- smex-history -----
+(
+ shell
+ elpy-config
+ revert-buffer
+ add-file-local-variable
+ elpy-enable
+ company-mode
+ org-display-inline-images
+)
+
+;; ----- smex-data -----
+(
+ (visual-line-mode . 2)
+ (kill-visual-line . 2)
+ (elpy-company-backend . 8)
+ (company-mode . 3)
+ (elpy-mode . 3)
+ (elpy-enable . 2)
+ (TeX-mode . 1)
+ (org-latex-preview . 1)
+ (yas-expand . 1)
+ (org-display-inline-images . 5)
+ (elpy-rpc-restart . 1)
+ (elpy-config . 14)
+ (yas-new-snippet . 2)
+ (org-ref . 1)
+ (add-file-local-variable . 1)
+ (revert-buffer . 1)
+ (shell . 1)
+)

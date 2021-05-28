@@ -1,43 +1,19 @@
-;; User details
-(setq user-full-name "Deheng Song")
-(setq user-mail-address "dhsong@vt.edu")
-
-;; Package management
-(load "package")
+;; enable melpa package
+(require 'package)
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+             '("melpa" . "https://melpa.org/packages/"))
+(package-refresh-contents)
 (package-initialize)
-;; (package-refresh-contents)
-
-;; Define default packages
-(defvar dhsong/packages '(
-			  auctex
-                          auto-complete
-                          autopair
-			  persistent-scratch
-			  ;;elpy
-			  ;;flycheck
-			  ;;magit
-                          markdown-mode
-                          org
-                          pdf-tools
-			  ;;powerline
-			  ;;smex
-                          solarized-theme
-			  writegood-mode
-			  yasnippet
-                          )
-  "Default packages")
-
-;; Install default packages
-(mapc #'(lambda (package)
-	  (unless (package-installed-p package)
-	    (package-refresh-contents)
-	    (package-install package)))
-      dhsong/packages)
+;; require use-package
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 ;; Start-up options
+;;;; personal information
+(setq user-full-name "Deheng Song"
+      user-mail-address "dhsong@vt.edu")
 ;;;; Splash Screen
 (setq inhibit-splash-screen t
       initial-scratch-message nil
@@ -54,6 +30,14 @@
 (setq-default indicate-empty-lines t)
 (when (not indicate-empty-lines)
   (toggle-indicate-empty-lines))
+;;;; Display Line Numbers and Truncated Lines
+(global-display-line-numbers-mode 1)
+(global-visual-line-mode t)
+;;;; Scrolling
+(setq scroll-conservatively 101) ;; value greater than 100 gets rid of half page jumping
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 3))) ;; how many lines at a time
+(setq mouse-wheel-progressive-speed t) ;; accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 ;;;; Indentation
 (setq tab-width 2
       indent-tabs-mode nil)
@@ -65,109 +49,129 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
 (global-set-key (kbd "M-/") 'hippie-expand)
-(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
-(global-set-key (kbd "C-c C-k") 'compile)
-(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-<tab>") 'treemacs)
+;; (global-set-key (kbd "C-c C-k") 'compile)
+;; (global-set-key (kbd "C-x g") 'magit-status)
 ;;;; Misc
 (setq echo-keystrokes 0.1
       use-dialog-box nil
       visible-bell t)
 (show-paren-mode t)
+;;;; Set ‘exec-path’ to match shell PATH automatically
+(defun set-exec-path-from-shell-PATH ()
+  "Set up Emacs' `exec-path' and PATH environment variable to match
+that used by the user's shell.
 
-;; Org
-;;;; Settings
-(setq org-log-done t
-      org-todo-keywords '((sequence "TODO" "INPROGRESS" "DONE"))
-      org-todo-keyword-faces '(("INPROGRESS" . (:foreground "blue" :weight bold))))
-(add-hook 'org-mode-hook
-          (lambda ()
-            (flyspell-mode)))
-(add-hook 'org-mode-hook
-          (lambda ()
-            (writegood-mode)))
-
-;; Utilities
-;;;; Ido
-(ido-mode t)
-(setq ido-enable-flex-matching t
-      ido-use-virtual-buffers t)
-;;;; Column number mode
-(setq column-number-mode t)
-;;;; Temporary file management
-(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
-;;;; autopair-mode
-(require 'autopair)
-;;;; auto-complete
-(require 'auto-complete-config)
-(ac-config-default)
-
-;;;; Indentation and buffer cleanup
-(defun untabify-buffer ()
+This is particularly useful under Mac OS X and macOS, where GUI
+apps are not started from a shell."
   (interactive)
-  (untabify (point-min) (point-max)))
+  (let ((path-from-shell (replace-regexp-in-string
+			  "[ \t\n]*$" "" (shell-command-to-string
+					  "$SHELL --login -c 'echo $PATH'"
+						    ))))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+(set-exec-path-from-shell-PATH)
 
-(defun indent-buffer ()
-  (interactive)
-  (indent-region (point-min) (point-max)))
+;; Icons
+(use-package all-the-icons)
 
-(defun cleanup-buffer ()
-  "Perform a bunch of operations on the whitespace content of a buffer."
-  (interactive)
-  (indent-buffer)
-  (untabify-buffer)
-  (delete-trailing-whitespace))
+;; Installing Ivy And Basic Setup
+(use-package counsel
+  :after ivy
+  :config (counsel-mode))
+(use-package ivy
+  :defer 0.1
+  :diminish
+  :bind
+  (("C-c C-r" . ivy-resume)
+   ("C-x B" . ivy-switch-buffer-other-window))
+  :custom
+  (setq ivy-count-format "(%d/%d) ")
+  (setq ivy-use-virtual-buffers t)
+  ;; (setq enable-recursive-minibuffers t)
+  :config
+  (ivy-mode))
+(use-package swiper
+  :after ivy
+  :bind (("C-s" . swiper)
+         ("C-r" . swiper)))
+(use-package ivy-bibtex)
 
-(defun cleanup-region (beg end)
-  "Remove tmux artifacts from region."
-  (interactive "r")
-  (dolist (re '("\\\\│\·*\n" "\W*│\·*"))
-    (replace-regexp re "" nil beg end)))
+;; better M-x
+(setq ivy-initial-inputs-alist nil)
+(use-package smex)
+(smex-initialize)
 
-(global-set-key (kbd "C-x M-t") 'cleanup-region)
-(global-set-key (kbd "C-c n") 'cleanup-buffer)
+;; projectile
+(use-package projectile
+  :config
+  (projectile-global-mode 1))
 
-(setq-default show-trailing-whitespace t)
-;;;;;
+;; vterm
+(use-package vterm)
+(setq shell-file-name "/bin/bash"
+      vterm-max-scrollback 5000)
 
-;; Set PATH Variable
-;; (setenv "PATH" (concat (getenv "PATH") ":/home/dhsong/.bin:/home/dhsong/.local/bin:/home/dhsong/anaconda3/bin:/home/dhsong/anaconda3/condabin"))
-;; (setq exec-path (append exec-path '("/home/dhsong/.bin:/home/dhsong/.local/bin:/home/dhsong/anaconda3/bin:/home/dhsong/anaconda3/condabin")))
+;; themes
+(use-package doom-themes)
+(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+(load-theme 'doom-one t)
+(use-package doom-modeline)
+(doom-modeline-mode 1)
 
-;; Config shell command
-(setq shell-file-name "zsh")
-(setq shell-command-switch "-ic")
+;; side-windows
+(use-package neotree)
+(use-package treemacs)
 
-;; Update PDF buffers after successful LaTeX runs
-(add-hook 'TeX-after-compilation-finished-functions
-          #'TeX-revert-document-buffer)
+;; LANGUAGE SUPPORT
+(use-package elpy
+  :init
+  (elpy-enable))
+;; (add-hook 'elpy-mode-hook (lambda () (local-unset-key (kbd "C-c C-c")))
+(use-package tex
+  :ensure auctex)
+(use-package cdlatex)
+(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
-;; Enable recent file
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(setq recentf-max-saved-items 25)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+;; company-mode
+(use-package company)
+(add-hook 'after-init-hook 'global-company-mode)
 
-;; Enable autosave and restore scratch
-(persistent-scratch-setup-default)
+;; Yasnippets
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+(use-package yasnippet-snippets)
+
+;; Org Mode
+(use-package org-ref)
+;;;; org-ref
+(setq reftex-default-bibliography '("~/Dropbox/Bibtex/main.bib"))
+;;;; see org-ref for use of these variables
+(setq org-ref-bibliography-notes "~/Dropbox/Bibtex/notes.org"
+      org-ref-default-bibliography '("~/Dropbox/Bibtex/main.bib")
+      org-ref-pdf-directory "~/Dropbox/Bibtex/pdf/")
+;;;; Source block languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (shell . t)
+   (latex . t)
+   (python . t)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-view-program-selection
-   '(((output-dvi has-no-display-manager)
-      "dvi2tty")
-     ((output-dvi style-pstricks)
-      "dvips and gv")
-     (output-dvi "xdvi")
-     (output-pdf "Skim")
-     (output-html "xdg-open")))
+ '(org-agenda-files nil)
  '(package-selected-packages
-   '(solarized-theme smex powerline pdf-tools markdown-mode magit flycheck elpy autopair auto-complete auctex))
- '(preview-TeX-style-dir "/home/dhsong/.emacs.d/elpa/auctex-12.2.0/latex" t))
+   '(org-ref ivy-bibtex auctex elpy neotree doom-themes vterm Projectile smex all-the-icons use-package))
+ '(projectile-mode t nil (projectile)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
