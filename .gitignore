@@ -54,5 +54,8 @@ flycheck_*.el
 # network security
 /network-security.data
 
+/.cache/
+org-roam.db
+smex-items
 
 # End of https://www.gitignore.io/api/emacs
