@@ -1,0 +1,11 @@
+* Default
+** .emacs.d
+ - path :: ~/.emacs.d
+** Notes
+ - path :: ~/Documents/Notes
+** org
+ - path :: ~/Documents/org
+** tmp
+ - path :: /tmp
+** Roam-Notes
+ - path :: ~/Documents/Roam-Notes

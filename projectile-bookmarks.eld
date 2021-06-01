@@ -1,1 +1,0 @@
-("~/.emacs.d/" "~/Dropbox/Bibtex/" "~/Documents/Notes/" "~/.emacs.d/.doom.d/")

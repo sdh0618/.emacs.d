@@ -1,32 +1,68 @@
 
 ;; ----- smex-history -----
 (
+ getenv
+ venv-workon
  shell
  elpy-config
- revert-buffer
- add-file-local-variable
- elpy-enable
- company-mode
- org-display-inline-images
+ pyvenv-activate
+ pyvenv-workon
+ kill-emacs
 )
 
 ;; ----- smex-data -----
 (
  (visual-line-mode . 2)
  (kill-visual-line . 2)
- (elpy-company-backend . 8)
- (company-mode . 3)
+ (elpy-company-backend . 12)
+ (company-mode . 5)
  (elpy-mode . 3)
- (elpy-enable . 2)
+ (elpy-enable . 4)
  (TeX-mode . 1)
  (org-latex-preview . 1)
  (yas-expand . 1)
  (org-display-inline-images . 5)
  (elpy-rpc-restart . 1)
- (elpy-config . 14)
+ (elpy-config . 27)
  (yas-new-snippet . 2)
- (org-ref . 1)
+ (org-ref . 2)
  (add-file-local-variable . 1)
  (revert-buffer . 1)
- (shell . 1)
+ (shell . 4)
+ (all-the-icons-install-fonts . 1)
+ (treemacs . 5)
+ (org-indent-mode . 1)
+ (org-agenda . 1)
+ (org-roam-db-build-cache . 2)
+ (org-roam-capture . 1)
+ (org-roam . 2)
+ (org-roam-graph . 1)
+ (org-store-link . 1)
+ (org-insert-link . 1)
+ (org-roam-find-index . 1)
+ (org-roam-jump-to-index . 1)
+ (orb-insert . 22)
+ (org-ref-helm . 3)
+ (org-ref-browser . 2)
+ (org-roam-insert . 6)
+ (orb-note-actions . 2)
+ (org-ref-index . 1)
+ (org-ref-list-of-tables . 1)
+ (helm-bibtex . 2)
+ (org-roam-find-file . 1)
+ (edebug-defun . 8)
+ (org-capture . 1)
+ (recover-file . 1)
+ (recover-this-file . 1)
+ (org-roam-server-mode . 1)
+ (kill-emacs . 3)
+ (pdf-tools-help . 1)
+ (orb-insert-non-ref . 1)
+ (orb-find-non-ref-file . 1)
+ (server-start . 1)
+ (elpy-rpc-reinstall-virtualenv . 1)
+ (pyvenv-activate . 2)
+ (pyvenv-workon . 1)
+ (venv-workon . 1)
+ (getenv . 8)
 )
