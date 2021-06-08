@@ -137,7 +137,7 @@ apps are not started from a shell."
   :init
   (elpy-enable)
   :config
-  (pyvenv-activate "venv"))
+  (pyvenv-activate "~/venv"))
 (use-package virtualenvwrapper
   :init
   (venv-initialize-interactive-shells)
@@ -163,6 +163,7 @@ apps are not started from a shell."
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (setq org-ellipsis "⤵")
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 ;;;; Org-ref
 (use-package org-ref
   :init
@@ -226,6 +227,8 @@ apps are not started from a shell."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   '("~/Documents/Roam-Notes/Tibaldo2015.org" "/home/dhsong/Documents/Notes/GlobularCluster.org"))
  '(package-selected-packages
    '(org-roam-server org yasnippet-snippets use-package treemacs smex projectile org-roam-bibtex neotree elpy doom-themes doom-modeline counsel cdlatex auctex)))
 (custom-set-faces
