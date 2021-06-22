@@ -158,26 +158,37 @@ apps are not started from a shell."
   :custom
   (yas-global-mode 1))
 (use-package yasnippet-snippets)
-
+;;;; flyspell
+(use-package flyspell
+  :ensure t
+  :defer t
+  :init
+  (progn
+    (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+    (add-hook 'text-mode-hook 'flyspell-mode)
+    )
+  :config
+  ;; Sets flyspell correction to use two-finger mouse click
+  ;; (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
+  )
 ;; Org Mode
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (setq org-ellipsis "⤵")
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 ;;;; Org-ref
 (use-package org-ref
   :init
   ;; (setq org-ref-completion-library 'org-ref-ivy-cite)
   :config
-  (setq reftex-default-bibliography '("~/Dropbox/Bibtex/main.bib"))
-  (setq org-ref-bibliography-notes "~/Dropbox/Bibtex/notes.org"
-	org-ref-default-bibliography '("~/Dropbox/Bibtex/main.bib")
-	org-ref-pdf-directory "~/Dropbox/Bibtex/pdf/"))
+  (setq reftex-default-bibliography '("~/Documents/Bibtex/main.bib"))
+  (setq org-ref-bibliography-notes "~/Documents/Bibtex/notes.org"
+	org-ref-default-bibliography '("~/Documents/Bibtex/main.bib")
+	org-ref-pdf-directory "~/Documents/Bibtex/pdf/"))
 (use-package bibtex-completion
   :config
-  (setq bibtex-completion-bibliography "~/Dropbox/Bibtex/main.bib"
-	bibtex-completion-library-path "~/Dropbox/Bibtex/pdf/"
-	bibtex-completion-notes-path "~/Dropbox/Bibtex/notes.org"))
+  (setq bibtex-completion-bibliography "~/Documents/Bibtex/main.bib"
+	bibtex-completion-library-path "~/Documents/Bibtex/pdf/"
+	bibtex-completion-notes-path "~/Documents/Bibtex/notes.org"))
 ;;;; Org-roam
 (use-package org-roam
   :hook
@@ -194,7 +205,24 @@ apps are not started from a shell."
 ;;;; Org-roam-bibtex
 (use-package org-roam-bibtex
   :after org-roam
-  :hook (org-roam-mode . org-roam-bibtex-mode))
+  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :config
+  (setq orb-templates
+        `(("w" "ref" plain (function org-roam-capture--get-point)
+           ""
+           :file-name "papers/${slug}"
+           :head ,(concat
+                   "#+title: ${=key=}: ${title}\n"
+                   "#+roam_key: ${ref}\n\n"
+                   "* ${title}\n"
+                   "  :PROPERTIES:\n"
+                   "  :Custom_ID: ${=key=}\n"
+                   "  :URL: ${url}\n"
+                   "  :AUTHOR: ${author-or-editor}\n"
+                   "  :NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n"
+                   "  :NOTER_PAGE: \n"
+                   "  :end:\n")
+           :unnarrowed t))))
 ;;;; Org-babel
 (setq org-src-fontify-natively t
       org-edit-src-content-indentation 0
@@ -228,7 +256,11 @@ apps are not started from a shell."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
-   '("~/Documents/Roam-Notes/Tibaldo2015.org" "/home/dhsong/Documents/Notes/GlobularCluster.org"))
+   '("/home/dhsong/Documents/Roam-Notes/20210618110133-pulsar_halo.org"))
+ '(org-format-latex-options
+   '(:foreground default :background default :scale 1.75 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+ '(org-preview-latex-image-directory "~/.ltximg")
  '(package-selected-packages
    '(org-roam-server org yasnippet-snippets use-package treemacs smex projectile org-roam-bibtex neotree elpy doom-themes doom-modeline counsel cdlatex auctex)))
 (custom-set-faces
