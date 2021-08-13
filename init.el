@@ -137,14 +137,15 @@ apps are not started from a shell."
   :init
   (elpy-enable)
   :config
-  (pyvenv-activate "~/venv"))
-(use-package virtualenvwrapper
-  :init
-  (venv-initialize-interactive-shells)
-  (venv-initialize-eshell)
-  (setq venv-location "~/")
-  :config
-  (venv-workon "venv"))
+  (pyvenv-activate "/home/dhsong/.local/venv/base")
+  (setq elpy-rpc-virtualenv-path 'current))
+;; (use-package virtualenvwrapper
+;;   :init
+;;   (venv-initialize-interactive-shells)
+;;   (venv-initialize-eshell)
+;;   (setq venv-location "~/")
+;;   :config
+;;   (venv-workon "venv"))
 (use-package tex
   :ensure auctex)
 (use-package cdlatex
@@ -175,54 +176,6 @@ apps are not started from a shell."
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (setq org-ellipsis "⤵")
-;;;; Org-ref
-(use-package org-ref
-  :init
-  ;; (setq org-ref-completion-library 'org-ref-ivy-cite)
-  :config
-  (setq reftex-default-bibliography '("~/Documents/Bibtex/main.bib"))
-  (setq org-ref-bibliography-notes "~/Documents/Bibtex/notes.org"
-	org-ref-default-bibliography '("~/Documents/Bibtex/main.bib")
-	org-ref-pdf-directory "~/Documents/Bibtex/pdf/"))
-(use-package bibtex-completion
-  :config
-  (setq bibtex-completion-bibliography "~/Documents/Bibtex/main.bib"
-	bibtex-completion-library-path "~/Documents/Bibtex/pdf/"
-	bibtex-completion-notes-path "~/Documents/Bibtex/notes.org"))
-;;;; Org-roam
-(use-package org-roam
-  :hook
-  (after-init . org-roam-mode)
-  :custom
-  (org-roam-directory "~/Documents/Roam-Notes")
-  :bind (:map org-roam-mode-map
-              (("C-c n l" . org-roam)
-               ("C-c n f" . org-roam-find-file)
-               ("C-c n g" . org-roam-graph))
-	      :map org-mode-map
-              (("C-c n i" . org-roam-insert))
-              (("C-c n I" . org-roam-insert-immediate))))
-;;;; Org-roam-bibtex
-(use-package org-roam-bibtex
-  :after org-roam
-  :hook (org-roam-mode . org-roam-bibtex-mode)
-  :config
-  (setq orb-templates
-        `(("w" "ref" plain (function org-roam-capture--get-point)
-           ""
-           :file-name "papers/${slug}"
-           :head ,(concat
-                   "#+title: ${=key=}: ${title}\n"
-                   "#+roam_key: ${ref}\n\n"
-                   "* ${title}\n"
-                   "  :PROPERTIES:\n"
-                   "  :Custom_ID: ${=key=}\n"
-                   "  :URL: ${url}\n"
-                   "  :AUTHOR: ${author-or-editor}\n"
-                   "  :NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n"
-                   "  :NOTER_PAGE: \n"
-                   "  :end:\n")
-           :unnarrowed t))))
 ;;;; Org-babel
 (setq org-src-fontify-natively t
       org-edit-src-content-indentation 0
@@ -234,29 +187,86 @@ apps are not started from a shell."
 			       (shell . t)
 			       (latex . t)
 			       (python . t)))
-;;;; Org-roam-server
-(use-package org-roam-server
-  :after org-roam
-  :hook (org-roam-mode . org-roam-server-mode)
+
+;;;; Org-ref
+(use-package org-ref
+  :init
+  ;; (setq org-ref-completion-library 'org-ref-ivy-cite)
   :config
-  (setq org-roam-server-host "127.0.0.1"
-        org-roam-server-port 8080
-        org-roam-server-authenticate nil
-        org-roam-server-export-inline-images t
-        org-roam-server-serve-files nil
-        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
-        org-roam-server-network-poll t
-        org-roam-server-network-arrows nil
-        org-roam-server-network-label-truncate t
-        org-roam-server-network-label-truncate-length 60
-        org-roam-server-network-label-wrap-length 20))
+  (setq reftex-default-bibliography '("~/Documents/Bibtex/main.bib" "~/Documents/Bibtex/Projects/globular.bib"))
+  (setq org-ref-bibliography-notes "~/Documents/Bibtex/notes.org"
+	org-ref-default-bibliography '("~/Documents/Bibtex/main.bib" "~/Documents/Bibtex/Projects/globular.bib")
+	org-ref-pdf-directory "~/Documents/Bibtex/pdf/"))
+
+;; (use-package bibtex-completion
+;;   :config
+;;   (setq bibtex-completion-bibliography "~/Documents/Bibtex/main.bib"
+;; 	bibtex-completion-library-path "~/Documents/Bibtex/pdf/"
+;; 	bibtex-completion-notes-path "~/Documents/Bibtex/notes.org"))
+
+(use-package org-roam
+  :ensure t
+  :init
+  (setq org-roam-v2-ack t)
+  (org-roam-setup)
+  :custom
+  (org-roam-directory (file-truename "~/Documents/Roam-Notes"))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today))
+  :config
+  ;; If using org-roam-protocol
+  ;; (require 'org-roam-protocol)
+  )
+
+;; ;;;; Org-roam-bibtex
+;; (use-package org-roam-bibtex
+;;   :after org-roam
+;;   :hook (org-roam-mode . org-roam-bibtex-mode)
+;;   :config
+;;   (setq orb-templates
+;;         `(("w" "ref" plain (function org-roam-capture--get-point)
+;;            ""
+;;            :file-name "papers/${slug}"
+;;            :head ,(concat
+;;                    "#+title: ${=key=}: ${title}\n"
+;;                    "#+roam_key: ${ref}\n\n"
+;;                    "* ${title}\n"
+;;                    "  :PROPERTIES:\n"
+;;                    "  :Custom_ID: ${=key=}\n"
+;;                    "  :URL: ${url}\n"
+;;                    "  :AUTHOR: ${author-or-editor}\n"
+;;                    "  :NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n"
+;;                    "  :NOTER_PAGE: \n"
+;;                    "  :end:\n")
+;;            :unnarrowed t))))
+;; (use-package org-roam-server
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (setq org-roam-server-host "127.0.0.1"
+;;         org-roam-server-port 8080
+;;         org-roam-server-authenticate nil
+;;         org-roam-server-export-inline-images t
+;;         org-roam-server-serve-files nil
+;;         org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+;;         org-roam-server-network-poll t
+;;         org-roam-server-network-arrows nil
+;;         org-roam-server-network-label-truncate t
+;;         org-roam-server-network-label-truncate-length 60
+;;         org-roam-server-network-label-wrap-length 20))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files
-   '("/home/dhsong/Documents/Roam-Notes/20210618110133-pulsar_halo.org"))
+ '(delete-selection-mode nil)
+ '(org-agenda-files nil)
  '(org-format-latex-options
    '(:foreground default :background default :scale 1.75 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
