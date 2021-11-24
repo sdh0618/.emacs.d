@@ -13,8 +13,6 @@
   (package-install 'use-package))
 (setq use-package-always-ensure t)
 (package-initialize)                ;; Initialize & Install Package
-;; require use-package
-;;(require 'use-package-ensure)
 
 ;; Start-up options
 ;;;; Personal information
@@ -85,6 +83,9 @@ apps are not started from a shell."
 (set-exec-path-from-shell-PATH)
 
 ;; Packages
+;;;; persistent-scratch
+(use-package persistent-scratch
+  :config (persistent-scratch-setup-default))
 ;;;; All-the-icons
 (use-package all-the-icons)
 ;;;; Ivy And Basic Setup
@@ -161,7 +162,6 @@ apps are not started from a shell."
 (use-package yasnippet-snippets)
 ;;;; flyspell
 (use-package flyspell
-  :ensure t
   :defer t
   :init
   (progn
@@ -176,6 +176,14 @@ apps are not started from a shell."
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (setq org-ellipsis "⤵")
+;; (setq org-latex-pdf-process
+;;       '("pdflatex -interaction nonstopmode -output-directory %o %f"
+;;         "biber %b"
+;;         "pdflatex -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -interaction nonstopmode -output-directory %o %f"))
+(setq org-latex-pdf-process
+      '("latexmk -pdflatex='pdflatex -interaction nonstopmode' -pdf -bibtex -f %f"))
+
 ;;;; Org-babel
 (setq org-src-fontify-natively t
       org-edit-src-content-indentation 0
@@ -193,10 +201,10 @@ apps are not started from a shell."
   :init
   ;; (setq org-ref-completion-library 'org-ref-ivy-cite)
   :config
-  (setq reftex-default-bibliography '("~/Documents/Bibtex/main.bib" "~/Documents/Bibtex/Projects/globular.bib"))
-  (setq org-ref-bibliography-notes "~/Documents/Bibtex/notes.org"
-	org-ref-default-bibliography '("~/Documents/Bibtex/main.bib" "~/Documents/Bibtex/Projects/globular.bib")
-	org-ref-pdf-directory "~/Documents/Bibtex/pdf/"))
+  (setq reftex-default-bibliography '("~/Dropbox/Bibtex/main.bib" "~/Dropbox/Bibtex/Projects/globular.bib"))
+  (setq org-ref-bibliography-notes "~/Dropbox/Bibtex/notes.org"
+	org-ref-default-bibliography '("~/Dropbox/Bibtex/main.bib" "~/Dropbox/Bibtex/Projects/globular.bib")
+	org-ref-pdf-directory "~/Dropbox/Bibtex/pdf/"))
 
 ;; (use-package bibtex-completion
 ;;   :config
@@ -205,10 +213,9 @@ apps are not started from a shell."
 ;; 	bibtex-completion-notes-path "~/Documents/Bibtex/notes.org"))
 
 (use-package org-roam
-  :ensure t
   :init
-  (setq org-roam-v2-ack t)
-  (org-roam-setup)
+;  (setq org-roam-v2-ack t)
+;  (org-roam-setup)
   :custom
   (org-roam-directory (file-truename "~/Documents/Roam-Notes"))
   :bind (("C-c n l" . org-roam-buffer-toggle)
@@ -266,7 +273,8 @@ apps are not started from a shell."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
- '(org-agenda-files nil)
+ '(org-agenda-files
+   '("/home/dhsong/Documents/new-gamma-globular/new-gamma-globular.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 1.75 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
