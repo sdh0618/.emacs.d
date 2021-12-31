@@ -2,8 +2,8 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives
-	     '("org" . "https://orgmode.org/elpa/") t)
+;; (add-to-list 'package-archives
+;;	     '("org" . "https://orgmode.org/elpa/") t)
 (unless package-archive-contents    ;; Refresh the packages descriptions
   (package-refresh-contents))
 (setq package-load-list '(all))     ;; List of packages to load
@@ -173,8 +173,9 @@ apps are not started from a shell."
   ;; (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
   )
 ;; Org Mode
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
 (setq org-ellipsis "⤵")
 ;; (setq org-latex-pdf-process
 ;;       '("pdflatex -interaction nonstopmode -output-directory %o %f"
@@ -273,14 +274,13 @@ apps are not started from a shell."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
- '(org-agenda-files
-   '("/home/dhsong/Documents/new-gamma-globular/new-gamma-globular.org"))
+ '(org-agenda-files nil)
  '(org-format-latex-options
    '(:foreground default :background default :scale 1.75 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-preview-latex-image-directory "~/.ltximg")
  '(package-selected-packages
-   '(org-roam-server org yasnippet-snippets use-package treemacs smex projectile org-roam-bibtex neotree elpy doom-themes doom-modeline counsel cdlatex auctex)))
+   '(persistent-scratch org-roam-server org yasnippet-snippets use-package treemacs smex projectile org-roam-bibtex neotree elpy doom-themes doom-modeline counsel cdlatex auctex)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
