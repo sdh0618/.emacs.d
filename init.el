@@ -2,15 +2,13 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
-;; (add-to-list 'package-archives
-;;	     '("org" . "https://orgmode.org/elpa/") t)
-(unless package-archive-contents    ;; Refresh the packages descriptions
-  (package-refresh-contents))
-(setq package-load-list '(all))     ;; List of packages to load
-(unless (package-installed-p 'org)  ;; Make sure the Org package is
-  (package-install 'org))           ;; installed, install it if not
+;; refresh and install packages for initial configuration
 (unless (package-installed-p 'use-package)
+  (package-refresh-contents)
   (package-install 'use-package))
+;; always ensure packages
+;; for built-in packages use ":ensure nil" to avoid errors
+(require 'use-package-ensure)
 (setq use-package-always-ensure t)
 (package-initialize)                ;; Initialize & Install Package
 
@@ -197,15 +195,65 @@ apps are not started from a shell."
 			       (latex . t)
 			       (python . t)))
 
-;;;; Org-ref
-(use-package org-ref
+(use-package ivy-bibtex
   :init
-  ;; (setq org-ref-completion-library 'org-ref-ivy-cite)
-  :config
-  (setq reftex-default-bibliography '("~/Dropbox/Bibtex/main.bib" "~/Dropbox/Bibtex/Projects/globular.bib"))
-  (setq org-ref-bibliography-notes "~/Dropbox/Bibtex/notes.org"
-	org-ref-default-bibliography '("~/Dropbox/Bibtex/main.bib" "~/Dropbox/Bibtex/Projects/globular.bib")
-	org-ref-pdf-directory "~/Dropbox/Bibtex/pdf/"))
+  (setq bibtex-completion-bibliography '("~/Dropbox/Bibtex/main.bib")
+	bibtex-completion-library-path '("~/Dropbox/Bibtex/pdf/")
+	bibtex-completion-notes-path "~/Dropbox/Bibtex/notes/"
+	bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+
+	bibtex-completion-additional-search-fields '(keywords)
+	bibtex-completion-display-formats
+	'((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+	  (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+	  (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+	  (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+	  (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+	bibtex-completion-pdf-open-function
+	(lambda (fpath)
+	  (call-process "open" nil 0 nil fpath))))
+
+(use-package org-ref
+  ;; :ensure nil
+  ;; :load-path (lambda () (expand-file-name "org-ref" scimax-dir))
+  :init
+  ;; (add-to-list 'load-path
+  ;; 	       (expand-file-name "org-ref" scimax-dir))
+  (require 'bibtex)
+  (setq bibtex-autokey-year-length 4
+	bibtex-autokey-name-year-separator "-"
+	bibtex-autokey-year-title-separator "-"
+	bibtex-autokey-titleword-separator "-"
+	bibtex-autokey-titlewords 2
+	bibtex-autokey-titlewords-stretch 1
+	bibtex-autokey-titleword-length 5)
+  (define-key bibtex-mode-map (kbd "H-b") 'org-ref-bibtex-hydra/body)
+  (define-key org-mode-map (kbd "C-c )") 'org-ref-insert-link)
+  (define-key org-mode-map (kbd "s-[") 'org-ref-insert-link-hydra/body)
+  (require 'org-ref-ivy)
+  (require 'org-ref-arxiv)
+  (require 'org-ref-scopus)
+  (require 'org-ref-wos)
+  )
+
+
+(use-package org-ref-ivy
+  :ensure nil
+  ;; :load-path (lambda () (expand-file-name "org-ref" scimax-dir))
+  :init (setq org-ref-insert-link-function 'org-ref-insert-link-hydra/body
+	      org-ref-insert-cite-function 'org-ref-cite-insert-ivy
+	      org-ref-insert-label-function 'org-ref-insert-label-link
+	      org-ref-insert-ref-function 'org-ref-insert-ref-link
+	      org-ref-cite-onclick-function (lambda (_) (org-ref-citation-hydra/body))))
+;;;; Org-ref
+;; (use-package org-ref
+;;   :init
+;;   ;; (setq org-ref-completion-library 'org-ref-ivy-cite)
+;;   :config
+;;   (setq reftex-default-bibliography '("~/Dropbox/Bibtex/main.bib"))
+;;   (setq org-ref-bibliography-notes "~/Dropbox/Bibtex/notes.org"
+;; 	org-ref-default-bibliography '("~/Dropbox/Bibtex/main.bib")
+;; 	org-ref-pdf-directory "~/Dropbox/Bibtex/pdf/"))
 
 ;; (use-package bibtex-completion
 ;;   :config
@@ -274,7 +322,7 @@ apps are not started from a shell."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
- '(org-agenda-files nil)
+ '(org-agenda-files '("/home/dhsong/Dropbox/Bibtex/notes/Karkevandi2021.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 1.75 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
