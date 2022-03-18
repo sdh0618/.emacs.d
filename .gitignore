@@ -2,6 +2,7 @@
 # Edit at https://www.gitignore.io/?templates=emacs
 
 .persistent-scratch
+bookmarks
 
 ### Emacs ###
 # -*- mode: gitignore; -*-
