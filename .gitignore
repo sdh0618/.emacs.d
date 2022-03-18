@@ -1,6 +1,8 @@
 # Created by https://www.gitignore.io/api/emacs
 # Edit at https://www.gitignore.io/?templates=emacs
 
+.persistent-scratch
+
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~
